@@ -10,7 +10,7 @@
     <filter-class>org.glassfish.jersey.servlet.ServletContainer</filter-class>
     <init-param>
         <param-name>jersey.config.server.provider.packages</param-name>
-        <param-value>com.cjhawley.personal.controller</param-value>
+        <param-value>com.cjhawley.personal.resource;org.codehaus.jackson.jaxrs</param-value>
     </init-param>
     <init-param>
         <param-name>jersey.config.server.mvc.templateBasePath.jsp</param-name>

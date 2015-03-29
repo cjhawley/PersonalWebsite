@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="rbt" uri="urn:org:glassfish:jersey:servlet:mvc" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -43,6 +45,10 @@
             </span>
             <span class="icon-stack">
               <i class="icon-check-empty icon-stack-base"></i>
+              <a class="btn btn-small" href="https://github.com/cjhawley" target="_blank" style="text-decoration:none; color:black;"><i class="icon-github"></i></a>
+            </span>
+            <span class="icon-stack">
+              <i class="icon-check-empty icon-stack-base"></i>
               <a class="btn btn-small" href="https://www.facebook.com/chris.hawley.33" target="_blank" style="text-decoration:none; color:black;"><i class="icon-facebook"></i></a>
             </span>
           </div>
@@ -57,13 +63,11 @@
           <div style="margin-right:5%; width: 40%; float:left;">
             <p><h3>Recent News</h3></p>
             <div style="background-color:white; margin-bottom:5px; border-radius:2px;">
-                <hr>
-                <p class="news-header">01/06/2014</p>
-                <p class="news">Started full time as a Software Development Engineer at <a href="http://a9.com/whatwedo/visual-search/" style="text-decoration: underline; color: black;">A9.com</a>!</p>
-                <hr>
-                <p class="news-header">12/18/2013</p>
-                <p class="news">Graduated from Washington University in St. Louis, with a major in Computer Science and Applied Mathematics</p>
-                <hr>
+               <c:forEach var="personal_event" items="${it.personal_events}">
+                 <hr>
+                 <p class="news-header"><fmt:formatDate value="${personal_event.date}" pattern="yyyy.MM.dd" /> - ${personal_event.title }</p>
+                 <p class="news">${personal_event.description}"</p>
+   			   </c:forEach>
             </div>
           </div>
           <div style="width: 50%; float:right;">
