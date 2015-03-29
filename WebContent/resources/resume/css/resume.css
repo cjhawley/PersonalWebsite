@@ -1,0 +1,97 @@
+.wrapper {
+    margin: 5px 0 0 5px;
+    /*font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;*/
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    width: 50%;
+    min-width: 700px;
+}
+
+.resume-header {
+    margin: 0 0 0 1px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.resume-header p {
+    margin: 0 0 0 4px;
+    border: 0 0 0 0;
+    font-size: 12px;
+}
+.resume-header h1 {
+    font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+    margin: 0 0 0 0;
+    border: 0 0 0 0;
+}
+
+.separator {
+    margin: 5px 0 5px 0px;
+    height: 2px;
+    width: 100%;
+    background-color: black;
+}
+
+.resume-body {
+    margin: 0 0 0 5px;
+    font-family: inherit;
+}
+
+.resume-body .section-title {
+    margin: 0;
+    border: 0;
+    font-size: 15px;
+}
+
+.resume-body .education {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.resume-body .education .section-date {
+    float: right;
+    font-size: 12px;
+}
+.resume-body .education .school {
+    /*float:left;*/
+    width: 75%;
+    margin-top: 0px;
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.resume-body .education p {
+    margin: 0;
+}
+
+.technical-skills {
+    margin-bottom: 10px;
+}
+.technical-skills .technical-section {
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.publication-section {
+    margin-left: 10px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.experience {
+    font-size: 12px;
+}
+
+.experience .experience-title {
+    display: inline;
+    font-size: 13px;
+    margin-left: 10px;
+    width: 75%;
+}
+
+.experience .experience-date {
+    display: inline;
+    float: right;
+}
+
+.experience .experience-section {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
