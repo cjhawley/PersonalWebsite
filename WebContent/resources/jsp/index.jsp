@@ -41,7 +41,7 @@
             </span>
             <span class="icon-stack">
               <i class="icon-check-empty icon-stack-base"></i>
-              <a class="btn btn-small" href="www.linkedin.com/pub/christopher-hawley/6b/23a/2/en" target="_blank" style="text-decoration:none; color:black;"><i class="icon-linkedin"></i></a>
+              <a class="btn btn-small" href="https://www.linkedin.com/pub/christopher-hawley/6b/23a/2/en" target="_blank" style="text-decoration:none; color:black;"><i class="icon-linkedin"></i></a>
             </span>
             <span class="icon-stack">
               <i class="icon-check-empty icon-stack-base"></i>
