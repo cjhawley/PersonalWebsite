@@ -1,0 +1,18 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="true"
+	monitoring="autodetect" dynamicConfig="true">
+ 
+	<!-- By default, Ehcache stored the cached files in temp folder. -->
+	<!-- <diskStore path="java.io.tmpdir" /> -->
+ 
+	<!-- Ask Ehcache to store cache in this path -->
+	<diskStore path="java.io.tmpdir" />
+ 
+	<cache name="cjhawley_cache" 
+		   maxEntriesLocalHeap="1000"
+		   timeToIdleSeconds="300"
+		   timeToLiveSeconds="600"
+		   eternal="true" 
+		   memoryStoreEvictionPolicy="FIFO"/>
+ 
+</ehcache>

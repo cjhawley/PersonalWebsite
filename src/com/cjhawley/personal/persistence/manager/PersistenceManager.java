@@ -1,4 +1,4 @@
-package com.cjhawley.personal.persistence;
+package com.cjhawley.personal.persistence.manager;
 
 import com.cjhawley.personal.persistence.dao.PersonalEventDao;
 

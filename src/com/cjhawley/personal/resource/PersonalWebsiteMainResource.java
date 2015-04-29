@@ -15,14 +15,15 @@ import com.cjhawley.personal.resource.rest.PersonalEventResource;
  */
 @Path("/")
 public class PersonalWebsiteMainResource {
-	
-	private static Map<String, Object> model = new HashMap<String, Object>();
-	static {
-		model.put("personal_events", PersonalEventResource.getInstance().personalEvents());
-	}
+	private static final String PERSONAL_EVENTS = "personal_events";
 	
 	@GET
 	public Viewable mainView() {
+		Map<String, Object> model = new HashMap<String, Object>();
+		
+		// personal events are cached, so this is safe.
+		model.put(PERSONAL_EVENTS, PersonalEventResource.getInstance().personalEvents());
+		
 		return new Viewable("/index.jsp", model);
 	}
 }

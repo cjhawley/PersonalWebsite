@@ -1,5 +1,6 @@
 package com.cjhawley.personal.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -11,7 +12,12 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  */
 @XmlRootElement
-public class PersonalEvent {
+public class PersonalEvent implements Serializable {
+	/**
+	 * auto generated UID 
+	 */
+	private static final long serialVersionUID = 3131724447231596147L;
+	
 	private String title;
 	private Date date;
 	private String description;

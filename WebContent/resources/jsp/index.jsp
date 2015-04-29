@@ -56,7 +56,7 @@
   
         <div style="float:left; margin-top: 40px; width:75%">
           <p>Hi, I'm Chris. (<a href="resources/resume/resume.html" style="text-decoration: underline; color: black;">View my résumé</a>)</p>
-          <p>I develop software for A9.com (an Amazon company). I am a full stack engineer, primarily building software for backend systems, but am also interested in many Computer Vision topics, such as photometric stereo, radiometric calibration, and shadow detection and estimation.</p>
+          <p>I develop software for Spotify. I am a full stack engineer, primarily building software for backend systems, but am also interested in many Computer Vision topics, such as photometric stereo, radiometric calibration, and shadow detection and estimation.</p>
         </div>
 
         <div style="width:75%;">

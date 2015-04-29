@@ -81,17 +81,46 @@
 
 .experience .experience-title {
     display: inline;
-    font-size: 13px;
+    font-size: 12px;
     margin-left: 10px;
     width: 75%;
+    /*font-weight: bold;*/
 }
+
+
 
 .experience .experience-date {
     display: inline;
     float: right;
 }
 
-.experience .experience-section {
-    margin-left: 20px;
-    margin-bottom: 10px;
+.experience-section {
+    /*padding-right: -5px;
+    margin-bottom: 10px;*/
+}
+
+ p{
+	display: inline;
+}
+
+.experience-section ul {
+	list-style: none;
+	/*padding-left: -15px;
+	padding-top:-2px;*/
+	margin: 0;
+	padding: 0;
+	margin-left:25px;
+	margin-bottom:10px;
+}
+
+.experience-section ul li{
+	overflow: visible;
+	padding-left: 13px;
+	position: relative;
+}
+
+.experience-section ul li:before {
+	content: "- ";
+	left: 0;
+	position: absolute;
 }

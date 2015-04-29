@@ -8,8 +8,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.cjhawley.personal.model.PersonalEvent;
-import com.cjhawley.personal.persistence.PersistenceManager;
-import com.cjhawley.personal.persistence.local.LocalPersistenceManager;
+import com.cjhawley.personal.persistence.manager.PersistenceManager;
+import com.cjhawley.personal.persistence.manager.s3.S3PersistenceManager;
 
 /**
  * Resource for Personal Events.
@@ -32,7 +32,7 @@ public class PersonalEventResource {
 		/**
 		 * Right now, there is no DB, so work with a local persistence manager.
 		 */
-		PersistenceManager persistenceManager = LocalPersistenceManager.getInstance();
+		PersistenceManager persistenceManager = S3PersistenceManager.getInstance();
 		return persistenceManager.getPersonalEventDao().getPersonalEvents();
 	}
 }
