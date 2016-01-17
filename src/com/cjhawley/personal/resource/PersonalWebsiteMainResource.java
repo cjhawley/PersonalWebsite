@@ -19,7 +19,7 @@ public class PersonalWebsiteMainResource {
 	
 	@GET
 	public Viewable mainView() {
-		Map<String, Object> model = new HashMap<String, Object>();
+		Map<String, Object> model = new HashMap<>();
 		
 		// personal events are cached, so this is safe.
 		model.put(PERSONAL_EVENTS, PersonalEventResource.getInstance().personalEvents());
