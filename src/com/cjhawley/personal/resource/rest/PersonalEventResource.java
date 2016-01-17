@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.cjhawley.personal.model.PersonalEvent;
 import com.cjhawley.personal.persistence.manager.PersistenceManager;
-import com.cjhawley.personal.persistence.manager.s3.S3PersistenceManager;
+import com.cjhawley.personal.persistence.manager.S3PersistenceManager;
 
 /**
  * Resource for Personal Events.
@@ -30,7 +30,7 @@ public class PersonalEventResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<PersonalEvent> personalEvents() {
 		/**
-		 * Right now, there is no DB, so work with a local persistence manager.
+		 * Work with S3 persistence manager, as we have remote data.
 		 */
 		PersistenceManager persistenceManager = S3PersistenceManager.getInstance();
 		return persistenceManager.getPersonalEventDao().getPersonalEvents();
