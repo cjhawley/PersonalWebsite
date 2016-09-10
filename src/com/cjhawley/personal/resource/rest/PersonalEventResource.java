@@ -8,8 +8,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.cjhawley.personal.model.PersonalEvent;
-import com.cjhawley.personal.persistence.manager.PersistenceManager;
-import com.cjhawley.personal.persistence.manager.S3PersistenceManager;
+import com.cjhawley.personal.persistence.dao.PersonalEventDao;
 
 /**
  * Resource for Personal Events.
@@ -20,19 +19,14 @@ import com.cjhawley.personal.persistence.manager.S3PersistenceManager;
 
 @Path("/personalevent")
 public class PersonalEventResource {
-	
-	private static final PersonalEventResource INSTANCE = new PersonalEventResource();
-	public static PersonalEventResource getInstance() {
-		return INSTANCE;
-	} 
+	private final PersonalEventDao personalEventDao;
+	public PersonalEventResource(PersonalEventDao personalEventDao) {
+		this.personalEventDao = personalEventDao;
+	}
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<PersonalEvent> personalEvents() {
-		/**
-		 * Work with S3 persistence manager, as we have remote data.
-		 */
-		PersistenceManager persistenceManager = S3PersistenceManager.getInstance();
-		return persistenceManager.getPersonalEventDao().getPersonalEvents();
+		return personalEventDao.getPersonalEvents();
 	}
 }

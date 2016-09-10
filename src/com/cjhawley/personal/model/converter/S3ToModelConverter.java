@@ -2,6 +2,7 @@ package com.cjhawley.personal.model.converter;
 
 import java.io.IOException;
 
+import io.norberg.automatter.jackson.AutoMatterModule;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,15 +17,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class S3ToModelConverter {
 	private static final Logger LOGGER = LoggerFactory.getLogger(S3ToModelConverter.class);
+
+	// Teach ObjecMatter how to work with automatter
+	private static final ObjectMapper MAPPER = new ObjectMapper().registerModule(new AutoMatterModule());
 	
 	public static <T> T convertS3DataToModel(S3Object obj, Class<T> clazz) {
-		ObjectMapper mapper = new ObjectMapper();
 
 		try {
 			byte[] jsonBytes = IOUtils.toByteArray(obj.getObjectContent());
-			return mapper.readValue(jsonBytes, clazz);
+			return MAPPER.readValue(jsonBytes, clazz);
 		} catch (IOException e) {
-			LOGGER.error(String.format("Error converting S3 object to '%s' object.", clazz.getSimpleName()), e);
+			LOGGER.error("Error converting S3 object to '{}' object.", clazz.getSimpleName(), e);
 		}
 		
 		return null;

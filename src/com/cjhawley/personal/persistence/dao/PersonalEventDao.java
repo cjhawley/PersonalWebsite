@@ -11,5 +11,5 @@ import com.cjhawley.personal.model.PersonalEvent;
  *
  */
 public interface PersonalEventDao {
-	public List<PersonalEvent> getPersonalEvents();
+	List<PersonalEvent> getPersonalEvents();
 }
