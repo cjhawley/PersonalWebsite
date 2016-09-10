@@ -65,8 +65,8 @@
             <div style="background-color:white; margin-bottom:5px; border-radius:2px;">
                <c:forEach var="personal_event" items="${it.personal_events}">
                  <hr>
-                 <p class="news-header"><fmt:formatDate value="${personal_event.date}" pattern="yyyy.MM.dd" /> - ${personal_event.title }</p>
-                 <p class="news">${personal_event.description}</p>
+                 <p class="news-header"><fmt:formatDate value="${personal_event.date()}" pattern="yyyy.MM.dd" /> - ${personal_event.title()}</p>
+                 <p class="news">${personal_event.description()}</p>
    			   </c:forEach>
             </div>
           </div>
