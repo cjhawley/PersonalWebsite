@@ -20,6 +20,7 @@
       <link rel="stylesheet" href="resources/css/normalize.css">
       <link rel="stylesheet" href="resources/css/main.css">
       <link rel="stylesheet" href="resources/css/font-awesome/css/font-awesome.css">
+      <link rel="stylesheet" href="resources/css/goodreads.css">
 
       <script src="resources/js/vendor/modernizr-2.6.2.min.js"></script>
 
@@ -56,7 +57,7 @@
   
         <div style="float:left; margin-top: 40px; width:75%">
           <p>Hi, I'm Chris. (<a href="resources/resume/resume.html" style="text-decoration: underline; color: black;">View my résumé</a>)</p>
-          <p>I develop software for Spotify. I am a full stack engineer, primarily building software for backend systems, but am also interested in many Computer Vision topics, such as photometric stereo, radiometric calibration, and shadow detection and estimation.</p>
+          <p>I develop software for Spotify. I'm a backend engineer primarily focusing on building large scale systems, but am also interested in many Computer Vision topics.</p>
         </div>
 
         <div style="width:75%;">

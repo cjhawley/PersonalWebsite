@@ -1,6 +1,5 @@
 package com.cjhawley.personal.persistence.dao;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -57,14 +56,13 @@ public class S3PersonalEventDaoImpl implements PersonalEventDao {
 				.filter(s -> s.getKey().endsWith("json")).map(s -> s.getKey())
 				.collect(Collectors.toList());
 
-		List<PersonalEvent> personalEvents = dataKeys.stream().map(k -> {
-			return S3ToModelConverter.convertS3DataToModel(client.getObject(S3Client.getRootBucketName(), k), PersonalEvent.class);
-		}).collect(Collectors.toList());
-		
-		personalEvents.stream().filter(p -> p != null);
-
-		// Sort by descending date.
-		Collections.sort(personalEvents, (p1, p2) -> p2.date().compareTo(p1.date()));
+		List<PersonalEvent> personalEvents = dataKeys.stream()
+				.map(k ->
+						S3ToModelConverter.convertS3DataToModel(client
+								.getObject(S3Client.getRootBucketName(), k), PersonalEvent.class))
+				.filter(p -> p != null)
+				.sorted((p1, p2) -> p2.date().compareTo(p1.date()))
+				.collect(Collectors.toList());
 
 		return personalEvents;
 	}
