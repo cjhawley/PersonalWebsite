@@ -14,7 +14,7 @@ import com.amazonaws.services.s3.AmazonS3Client;
 public class S3Client {
 	private static final String ROOT_BUCKET_NAME = "personal-site-cjhawley-1";
 	
-	private final AmazonS3 S3_CLIENT;
+	private final AmazonS3 s3Client;
 	
 	private static S3Client INSTANCE = new S3Client();
 	
@@ -25,13 +25,13 @@ public class S3Client {
 	private S3Client() {
 		AWSCredentialsProviderChain credentialsProviderChain = new AWSCredentialsProviderChain(
 				new ProfileCredentialsProvider(),
-				new InstanceProfileCredentialsProvider());
+				new InstanceProfileCredentialsProvider(false));
 		
-		S3_CLIENT = new AmazonS3Client(credentialsProviderChain);
+		s3Client = new AmazonS3Client(credentialsProviderChain);
 	}
 	
 	public AmazonS3 getS3Client() {
-		return S3_CLIENT;
+		return s3Client;
 	}
 	
 	public static String getRootBucketName() {

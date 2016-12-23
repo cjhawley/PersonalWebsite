@@ -1,9 +1,11 @@
-package com.cjhawley.personal.persistence.dao;
+package com.cjhawley.personal.persistence;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
+import com.spotify.futures.CompletableFutures;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Ehcache;
 import net.sf.ehcache.Element;
@@ -24,6 +26,7 @@ import com.cjhawley.personal.model.converter.S3ToModelConverter;
  */
 public class S3PersonalEventDaoImpl implements PersonalEventDao {
 	private static final Logger LOGGER = LoggerFactory.getLogger(S3PersonalEventDaoImpl.class);
+	private static final Executor EXECUTOR = new ForkJoinPool();
 
 	private final Ehcache ehcache;
 	private static final String PERSONAL_EVENTS_CACHE_KEY = "PersonalEvents";
@@ -51,21 +54,40 @@ public class S3PersonalEventDaoImpl implements PersonalEventDao {
 
 	private List<PersonalEvent> loadPersonalEventsFromS3() {
 		AmazonS3 client = S3Client.getInstance().getS3Client();
-		ObjectListing listing = client.listObjects(S3Client.getRootBucketName(), PERSONAL_EVENTS_S3_FOLDER);
 
-		List<String> dataKeys = listing.getObjectSummaries().stream()
+		long startTime = System.currentTimeMillis();
+		CompletionStage<List<PersonalEvent>> personalEventsFuture = CompletableFuture
+				.supplyAsync(() -> client.listObjects(S3Client.getRootBucketName(), PERSONAL_EVENTS_S3_FOLDER), EXECUTOR)
+				.thenApply(this::getDataKeysFromObjectListing)
+				.thenApply(keys -> keys.stream()
+						.map(key -> getPersonalEventFromS3Object(client, key))
+						.collect(Collectors.toList()))
+				.thenCompose(CompletableFutures::allAsList)
+				.thenApply(personalEvents -> personalEvents.stream()
+						.filter(p -> p != null)
+						.sorted((p1, p2) -> p2.date().compareTo(p1.date()))
+						.collect(Collectors.toList()))
+				.whenComplete((response, throwable) -> {
+					if (throwable != null) {
+						LOGGER.error("Error loading personal events.", throwable);
+					}
+					long totalTimeMillis = System.currentTimeMillis() - startTime;
+					LOGGER.info("Total time to load personal events: {}", totalTimeMillis);
+				})
+				.exceptionally(throwable -> new ArrayList<>());
+
+		// ugh need to do this.
+		return personalEventsFuture.toCompletableFuture().join();
+	}
+
+	private List<String> getDataKeysFromObjectListing(ObjectListing objectListing) {
+		return objectListing.getObjectSummaries().stream()
 				.filter(s -> s.getKey().endsWith("json")).map(s -> s.getKey())
 				.collect(Collectors.toList());
+	}
 
-		List<PersonalEvent> personalEvents = dataKeys.stream().map(k -> {
-			return S3ToModelConverter.convertS3DataToModel(client.getObject(S3Client.getRootBucketName(), k), PersonalEvent.class);
-		}).collect(Collectors.toList());
-		
-		personalEvents.stream().filter(p -> p != null);
-
-		// Sort by descending date.
-		Collections.sort(personalEvents, (p1, p2) -> p2.date().compareTo(p1.date()));
-
-		return personalEvents;
+	private CompletionStage<PersonalEvent> getPersonalEventFromS3Object(AmazonS3 client, String key) {
+		return CompletableFuture.supplyAsync(() -> S3ToModelConverter.convertS3DataToModel(client
+				.getObject(S3Client.getRootBucketName(), key), PersonalEvent.class));
 	}
 }

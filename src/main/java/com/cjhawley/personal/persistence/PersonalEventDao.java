@@ -1,4 +1,4 @@
-package com.cjhawley.personal.persistence.dao;
+package com.cjhawley.personal.persistence;
 
 import java.util.List;
 
