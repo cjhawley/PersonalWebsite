@@ -6,7 +6,7 @@
     <version>0.0.2</version>
 
     <scm>
-        <developerConnection>scm:https://github.com/cjhawley/PersonalWebsite</developerConnection>
+        <developerConnection>scm:git:https://github.com/cjhawley/PersonalWebsite</developerConnection>
     </scm>
 
     <build>
