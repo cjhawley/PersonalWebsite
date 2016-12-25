@@ -39,6 +39,7 @@ public class PersonalWebsiteService {
 		port(8080);
 		staticFiles.location("/web");
 
+		get("/ping", ((request, response) -> "pong"));
 		get("/", (request, response) -> {
 			Map<String, Object> model = new HashMap<>();
 			model.put(PERSONAL_EVENTS, personalEventDao.getPersonalEvents());
