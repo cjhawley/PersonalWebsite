@@ -1,1 +1,1 @@
-java -jar target/CjhawleyPersonalWebsite-*.jar
+cd /var/website && java -jar target/CjhawleyPersonalWebsite-*.jar

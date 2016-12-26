@@ -1,1 +1,1 @@
-mvn clean package
+cd /var/website && mvn clean package
