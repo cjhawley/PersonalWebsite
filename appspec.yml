@@ -15,6 +15,11 @@ hooks:
       timeout: 60
       runas: root
 
+  ValidateService:
+    - location: scripts/validate.sh
+      timeout: 60
+      runas: root
+
   ApplicationStop:
     - location: scripts/stopService.sh
       timeout: 60
