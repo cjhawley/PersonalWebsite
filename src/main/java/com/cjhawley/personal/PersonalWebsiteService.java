@@ -3,13 +3,8 @@ package com.cjhawley.personal;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.cjhawley.personal.persistence.PersonalEventDao;
-import com.cjhawley.personal.persistence.S3PersonalEventDaoImpl;
-import net.sf.ehcache.Cache;
-import net.sf.ehcache.CacheManager;
+import com.cjhawley.personal.persistence.S3PersonalEvents;
 
-import net.sf.ehcache.config.CacheConfiguration;
-import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
 import org.apache.velocity.tools.generic.DateTool;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -27,12 +22,10 @@ import static spark.Spark.staticFiles;
 public class PersonalWebsiteService {
 	private static final String PERSONAL_EVENTS = "personal_events";
 
-	private final CacheManager cacheManager;
-	private final PersonalEventDao personalEventDao;
+	private final S3PersonalEvents personalEvents;
 
 	public PersonalWebsiteService() {
-		this.cacheManager = cacheManager();
-		this.personalEventDao = new S3PersonalEventDaoImpl(cacheManager);
+		this.personalEvents = new S3PersonalEvents();
 	}
 
 	public void init() {
@@ -42,7 +35,7 @@ public class PersonalWebsiteService {
 		get("/ping", ((request, response) -> "pong"));
 		get("/", (request, response) -> {
 			Map<String, Object> model = new HashMap<>();
-			model.put(PERSONAL_EVENTS, personalEventDao.getPersonalEvents());
+			model.put(PERSONAL_EVENTS, personalEvents.getPersonalEvents());
 			model.put("date", new DateTool());
 
 			// The wm files are located under the resources directory
@@ -52,24 +45,7 @@ public class PersonalWebsiteService {
 		Gson gson = new Gson();
 		get("/personalevents", (request, response) -> {
 			response.header("content-type", "application/json");
-			return personalEventDao.getPersonalEvents();
+			return personalEvents.getPersonalEvents();
 		}, gson::toJson);
-	}
-
-	private CacheManager cacheManager() {
-
-		CacheConfiguration cacheConfiguration = new CacheConfiguration();
-		cacheConfiguration.setName("cjhawley_cache");
-		cacheConfiguration.maxEntriesLocalHeap(1000);
-		cacheConfiguration.timeToIdleSeconds(60*60);
-		cacheConfiguration.timeToLiveSeconds(60*60);
-		cacheConfiguration.eternal(false);
-		cacheConfiguration.memoryStoreEvictionPolicy(MemoryStoreEvictionPolicy.FIFO);
-
-		Cache cache = new Cache(cacheConfiguration);
-		CacheManager cacheManager = CacheManager.create();
-		cacheManager.addCache(cache);
-
-		return cacheManager;
 	}
 }
