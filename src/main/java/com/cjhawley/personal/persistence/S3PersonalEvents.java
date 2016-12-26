@@ -98,7 +98,7 @@ public class S3PersonalEvents {
 
 		return CacheBuilder.newBuilder()
 			.maximumSize(1000)
-			.refreshAfterWrite(10, TimeUnit.SECONDS)
+			.refreshAfterWrite(12, TimeUnit.HOURS)
 			.build(new CacheLoader<String, List<PersonalEvent>>() {
 				public List<PersonalEvent> load(String key) throws Exception {
 					return loadPersonalEventsFromS3();
