@@ -8,11 +8,11 @@ hooks:
   BeforeInstall:
     - location: /scripts/buildService.sh
       timeout: 300
-      runas: website
+      runas: root
 
     - location: scripts/runService.sh
       timeout: 300
-      runas: website
+      runas: root
 
   ApplicationStop:
     - location: stopService.sh
