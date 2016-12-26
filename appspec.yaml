@@ -1,0 +1,20 @@
+version: 0.0
+os: linux
+files:
+  - source: /*
+  - destination /var/www
+
+hooks:
+  BeforeInstall:
+    - location: /scripts/buildService.sh
+      timeout: 300
+      runas: website
+
+    - location: scripts/runService.sh
+      timeout: 300
+      runas: website
+
+  ApplicationStop:
+    - location: stopService.sh
+      timeout: 300
+      runas: root
