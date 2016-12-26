@@ -6,7 +6,7 @@ files:
 
 hooks:
   AfterInstall:
-    - location: /scripts/buildService.sh
+    - location: scripts/buildService.sh
       timeout: 300
       runas: root
 
