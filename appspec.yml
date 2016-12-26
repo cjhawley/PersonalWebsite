@@ -7,14 +7,15 @@ files:
 hooks:
   AfterInstall:
     - location: scripts/buildService.sh
-      timeout: 300
+      timeout: 60
       runas: root
 
+  ApplicationStart:
     - location: scripts/runService.sh
-      timeout: 300
+      timeout: 60
       runas: root
 
   ApplicationStop:
     - location: scripts/stopService.sh
-      timeout: 300
+      timeout: 60
       runas: root
