@@ -1,0 +1,21 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/website
+
+hooks:
+  AfterInstall:
+    - location: scripts/buildService.sh
+      timeout: 60
+      runas: root
+
+  ApplicationStart:
+    - location: scripts/runService.sh
+      timeout: 60
+      runas: root
+
+  ApplicationStop:
+    - location: scripts/stopService.sh
+      timeout: 60
+      runas: root
