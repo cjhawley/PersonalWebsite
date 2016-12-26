@@ -2,11 +2,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>CjhawleyPersonalWebsite</groupId>
     <artifactId>CjhawleyPersonalWebsite</artifactId>
-    <version>0.0.11</version>
+    <version>0.0.12-SNAPSHOT</version>
 
     <scm>
         <developerConnection>scm:git:https://github.com/cjhawley/PersonalWebsite</developerConnection>
-      <tag>CjhawleyPersonalWebsite-0.0.11</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <build>
