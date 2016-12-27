@@ -1,6 +1,9 @@
 # PersonalWebsite
 My personal website. 
 
+## Deploy
+Deploy using AWS CodeDeploy
+
 ## Running
 
 ### Build
