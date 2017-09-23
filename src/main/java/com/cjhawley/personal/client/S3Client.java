@@ -3,8 +3,9 @@ package com.cjhawley.personal.client;
 import com.amazonaws.auth.AWSCredentialsProviderChain;
 import com.amazonaws.auth.InstanceProfileCredentialsProvider;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 
 /**
  * Simple S3 client creator.
@@ -12,6 +13,7 @@ import com.amazonaws.services.s3.AmazonS3Client;
  *
  */
 public class S3Client {
+	private static final Regions S3_REGIONS = Regions.US_EAST_1;
 	private static final String ROOT_BUCKET_NAME = "personal-site-cjhawley-1";
 	
 	private final AmazonS3 s3Client;
@@ -25,9 +27,11 @@ public class S3Client {
 	private S3Client() {
 		AWSCredentialsProviderChain credentialsProviderChain = new AWSCredentialsProviderChain(
 				new ProfileCredentialsProvider(),
-				new InstanceProfileCredentialsProvider(false));
-		
-		s3Client = new AmazonS3Client(credentialsProviderChain);
+				new InstanceProfileCredentialsProvider(true));
+
+		s3Client = AmazonS3ClientBuilder.standard()
+				.withRegion(S3_REGIONS)
+				.withCredentials(credentialsProviderChain).build();
 	}
 	
 	public AmazonS3 getS3Client() {

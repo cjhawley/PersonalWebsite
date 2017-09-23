@@ -18,8 +18,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class S3ToModelConverter {
 	private static final Logger LOGGER = LoggerFactory.getLogger(S3ToModelConverter.class);
 
-	// Teach ObjecMatter how to work with automatter
-	private static final ObjectMapper MAPPER = new ObjectMapper().registerModule(new AutoMatterModule());
+	private static final ObjectMapper MAPPER = new ObjectMapper()
+			.registerModule(new AutoMatterModule());
 	
 	public static <T> T convertS3DataToModel(S3Object obj, Class<T> clazz) {
 
