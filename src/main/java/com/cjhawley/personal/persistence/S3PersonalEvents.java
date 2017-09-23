@@ -1,7 +1,9 @@
 package com.cjhawley.personal.persistence;
 
+import com.amazonaws.services.s3.model.S3ObjectSummary;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
@@ -67,7 +69,7 @@ public class S3PersonalEvents {
 						.collect(Collectors.toList()))
 				.thenCompose(CompletableFutures::allAsList)
 				.thenApply(personalEvents -> personalEvents.stream()
-						.filter(p -> p != null)
+						.filter(Objects::nonNull)
 						.sorted((p1, p2) -> p2.date().compareTo(p1.date()))
 						.collect(Collectors.toList()))
 				.whenComplete((response, throwable) -> {
@@ -85,7 +87,7 @@ public class S3PersonalEvents {
 
 	private List<String> getDataKeysFromObjectListing(ObjectListing objectListing) {
 		return objectListing.getObjectSummaries().stream()
-				.filter(s -> s.getKey().endsWith("json")).map(s -> s.getKey())
+				.filter(s -> s.getKey().endsWith("json")).map(S3ObjectSummary::getKey)
 				.collect(Collectors.toList());
 	}
 
