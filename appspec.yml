@@ -8,19 +8,20 @@ hooks:
   AfterInstall:
     - location: scripts/buildService.sh
       timeout: 60
-      runas: root
+      runas: ec2-user
 
   ApplicationStart:
     - location: scripts/runService.sh
       timeout: 60
-      runas: root
+      runas: ec2-user
 
   ValidateService:
     - location: scripts/validate.sh
       timeout: 60
-      runas: root
+      runas: ec2-user
 
   ApplicationStop:
     - location: scripts/stopService.sh
       timeout: 60
-      runas: root
+      runas: ec2-user
+     
