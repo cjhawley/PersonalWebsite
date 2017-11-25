@@ -10,19 +10,19 @@
     </scm>
 
     <properties>
-        <jackson.version>2.9.1</jackson.version>
+        <jackson.version>2.9.2</jackson.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.sparkjava</groupId>
             <artifactId>spark-core</artifactId>
-            <version>2.6.0</version>
+            <version>2.7.1</version>
         </dependency>
         <dependency>
             <groupId>com.sparkjava</groupId>
             <artifactId>spark-template-velocity</artifactId>
-            <version>2.5.5</version>
+            <version>2.7.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.velocity</groupId>
@@ -32,12 +32,12 @@
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-java-sdk</artifactId>
-            <version>1.11.201</version>
+            <version>1.11.235</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>23.0</version>
+            <version>23.4-jre</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -57,39 +57,39 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.5</version>
+            <version>2.6</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.12</version>
+            <version>1.7.25</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.1.8</version>
+            <version>1.2.3</version>
         </dependency>
 
         <dependency>
             <groupId>com.spotify</groupId>
             <artifactId>completable-futures</artifactId>
-            <version>0.3.0</version>
+            <version>0.3.2</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.8.1</version>
+            <version>2.8.2</version>
         </dependency>
         <dependency>
             <groupId>io.norberg</groupId>
             <artifactId>auto-matter</artifactId>
-            <version>0.13.3</version>
+            <version>0.14.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>io.norberg</groupId>
             <artifactId>auto-matter-jackson</artifactId>
-            <version>0.13.3</version>
+            <version>0.14.1</version>
         </dependency>
     </dependencies>
     <build>
