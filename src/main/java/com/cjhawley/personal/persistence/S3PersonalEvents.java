@@ -31,12 +31,11 @@ import com.cjhawley.personal.model.converter.S3ToModelConverter;
 public class S3PersonalEvents {
 	private static final Logger LOGGER = LoggerFactory.getLogger(S3PersonalEvents.class);
 	private static final Executor EXECUTOR = new ForkJoinPool();
+	private static final String PERSONAL_EVENTS_CACHE_KEY = "PersonalEvents";
+	private static final String PERSONAL_EVENTS_S3_FOLDER = "personal-events";
 
 	private final LoadingCache<String, List<PersonalEvent>> personalEventCache;
-	private static final String PERSONAL_EVENTS_CACHE_KEY = "PersonalEvents";
 
-	// TODO - find a better way to keep the "object content" folder name
-	private static final String PERSONAL_EVENTS_S3_FOLDER = "personal-events";
 
 	public S3PersonalEvents() {
 		this.personalEventCache = getPersonalEventCache();
@@ -58,7 +57,7 @@ public class S3PersonalEvents {
 	}
 
 	private List<PersonalEvent> loadPersonalEventsFromS3() {
-		AmazonS3 client = S3Client.getInstance().getS3Client();
+		final AmazonS3 client = S3Client.getInstance().getS3Client();
 
 		long startTime = System.currentTimeMillis();
 		CompletionStage<List<PersonalEvent>> personalEventsFuture = CompletableFuture
@@ -112,6 +111,5 @@ public class S3PersonalEvents {
 					return task;
 				}
 			});
-
 	}
 }
