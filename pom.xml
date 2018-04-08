@@ -11,6 +11,8 @@
 
     <properties>
         <jackson.version>2.10.1</jackson.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jackson.version>2.10.1</jackson.version>
     </properties>
 
     <dependencies>
@@ -98,9 +100,6 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <jdkToolchain>
-                        <version>9</version>
-                    </jdkToolchain>
                     <source>9</source>
                     <target>9</target>
                 </configuration>
