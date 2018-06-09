@@ -59,6 +59,8 @@ public class S3PersonalEvents {
 	private List<PersonalEvent> loadPersonalEventsFromS3() {
 		final AmazonS3 client = S3Client.getInstance().getS3Client();
 
+
+
 		long startTime = System.currentTimeMillis();
 		CompletionStage<List<PersonalEvent>> personalEventsFuture = CompletableFuture
 				.supplyAsync(() -> client.listObjects(S3Client.getRootBucketName(), PERSONAL_EVENTS_S3_FOLDER), EXECUTOR)
