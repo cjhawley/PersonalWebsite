@@ -29,6 +29,8 @@ public class S3Client {
 				new ProfileCredentialsProvider(),
 				new InstanceProfileCredentialsProvider(true));
 
+
+
 		s3Client = AmazonS3ClientBuilder.standard()
 				.withRegion(S3_REGIONS)
 				.withCredentials(credentialsProviderChain).build();
