@@ -1,16 +1,8 @@
-FROM openjdk:10-slim
+FROM openjdk:11-slim
+MAINTAINER Chris Hawley <chris@chrishawley.io>
 
+ENTRYPOINT ["/usr/bin/java", "-jar", "/usr/share/personalwebsite/personalwebsite.jar", "/usr/share/personalwebsite/personal_events.json"]
 
-RUN apt update && apt upgrade -y && \
-    apt install maven -y && \
-    mkdir -p /cjhawleywebsite
-
-COPY . /cjhawleywebsite/
-
-WORKDIR /cjhawleywebsite
-
-RUN mvn clean package
-
-CMD ["java", "-jar", "./target/CjhawleyPersonalWebsite-0.0.18-SNAPSHOT.jar", ">", "/dev/null", "2>", "/dev/null", "<", "/dev/null", "&"]
-
-
+ADD target/lib          /usr/share/personalwebsite/lib
+ADD target/personalwebsite.jar /usr/share/personalwebsite/personalwebsite.jar
+ADD target/classes/content/personal_events.json /usr/share/personalwebsite/personal_events.json
