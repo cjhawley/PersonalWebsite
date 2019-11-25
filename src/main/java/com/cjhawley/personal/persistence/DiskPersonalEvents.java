@@ -14,7 +14,7 @@ public class DiskPersonalEvents implements PersonalEventsLoader {
   private final List<PersonalEvent> personalEvents;
 
   public DiskPersonalEvents(ObjectMapper objectMapper, File personalEventsFile) throws IOException {
-    personalEvents = sort(objectMapper.readValue(personalEventsFile, new TypeReference<List<PersonalEvent>>() {}));
+    personalEvents = sort(objectMapper.readValue(personalEventsFile, new TypeReference<>() {}));
   }
 
   public List<PersonalEvent> getPersonalEvents() {
