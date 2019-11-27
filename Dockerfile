@@ -18,4 +18,4 @@ COPY --from=builder /app/target/lib                                  /usr/share/
 COPY --from=builder /app/target/personalwebsite.jar                  /usr/share/personalwebsite/personalwebsite.jar
 COPY --from=builder /app/target/classes/content/personal_events.json /usr/share/personalwebsite/personal_events.json
 
-CMD ["/usr/bin/java", "-jar", "/usr/share/personalwebsite/personalwebsite.jar", "/usr/share/personalwebsite/personal_events.json"]
+CMD ["java", "-jar", "/usr/share/personalwebsite/personalwebsite.jar", "/usr/share/personalwebsite/personal_events.json"]
