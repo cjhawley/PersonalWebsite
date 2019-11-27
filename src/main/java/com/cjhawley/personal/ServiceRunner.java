@@ -5,8 +5,8 @@ package com.cjhawley.personal;
  */
 public class ServiceRunner {
 
-    public static void main(final String[] args) {
-        PersonalWebsiteService personalWebsiteService = new PersonalWebsiteService();
+    public static void main(final String[] args) throws Exception {
+        PersonalWebsiteService personalWebsiteService = new PersonalWebsiteService(args);
         personalWebsiteService.init();
     }
 }

@@ -1,9 +1,13 @@
 package com.cjhawley.personal;
 
+import com.cjhawley.personal.persistence.DiskPersonalEvents;
+import com.cjhawley.personal.persistence.PersonalEventsLoader;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.norberg.automatter.jackson.AutoMatterModule;
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.cjhawley.personal.persistence.S3PersonalEvents;
 
 import org.apache.velocity.tools.generic.DateTool;
 import spark.ModelAndView;
@@ -21,11 +25,16 @@ import static spark.Spark.staticFiles;
  */
 public class PersonalWebsiteService {
 	private static final String PERSONAL_EVENTS = "personal_events";
+	private static final ObjectMapper MAPPER = new ObjectMapper()
+			.registerModule(new AutoMatterModule());
 
-	private final S3PersonalEvents personalEvents;
+	private final PersonalEventsLoader personalEvents;
 
-	public PersonalWebsiteService() {
-		this.personalEvents = new S3PersonalEvents();
+
+	public PersonalWebsiteService(String[] args) throws Exception  {
+		File personalEventsFile = new File(args[0]);
+
+		this.personalEvents = new DiskPersonalEvents(MAPPER, personalEventsFile);
 	}
 
 	public void init() {
