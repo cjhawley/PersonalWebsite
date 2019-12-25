@@ -19,9 +19,8 @@ import static spark.Spark.get;
 import static spark.Spark.port;
 import static spark.Spark.staticFiles;
 
-
 /**
- * Servlet implementation class PersonalWebsiteController
+ * Implementation of the service
  */
 public class PersonalWebsiteService {
 	private static final String PERSONAL_EVENTS = "personal_events";
@@ -30,7 +29,11 @@ public class PersonalWebsiteService {
 
 	private final PersonalEventsLoader personalEvents;
 
-
+	/**
+	 * Constructor
+	 * @param args We expect a single argument: the path to the personal events JSON file.
+	 * @throws Exception Throw an exception if we cannot load and parse the personal events file
+	 */
 	public PersonalWebsiteService(String[] args) throws Exception  {
 		File personalEventsFile = new File(args[0]);
 
@@ -51,7 +54,7 @@ public class PersonalWebsiteService {
 			return new ModelAndView(model, "/web/jsp/index.vm");
 		}, new VelocityTemplateEngine());
 
-		Gson gson = new Gson();
+		final Gson gson = new Gson();
 		get("/personalevents", (request, response) -> {
 			response.header("content-type", "application/json");
 			return personalEvents.getPersonalEvents();
