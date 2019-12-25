@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.cjhawley</groupId>
     <artifactId>personalwebsite</artifactId>
-    <version>0.0.18-SNAPSHOT</version>
+    <version>0.1.1-SNAPSHOT</version>
 
     <scm>
         <developerConnection>scm:git:https://github.com/cjhawley/PersonalWebsite</developerConnection>
@@ -10,8 +10,8 @@
     </scm>
 
     <properties>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <jackson.version>2.10.1</jackson.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jackson.version>2.10.1</jackson.version>
         <junit.jupiter.version>5.5.2</junit.jupiter.version>
     </properties>
 
