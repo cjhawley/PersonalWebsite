@@ -20,7 +20,7 @@ jobs:
         uses: actions-hub/gcloud@master
         env:
           APPLICATION_CREDENTIALS: ${{ secrets.GCLOUD_AUTH }}
-          PROJECT_ID: ${{ GCLOUD_PROJECT_ID }}
+          PROJECT_ID: ${{ secrets.GCLOUD_PROJECT_ID }}
 
       - name: Configure Docker to use GCP
         uses: actions-hub/gcloud@master
