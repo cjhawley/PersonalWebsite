@@ -19,7 +19,7 @@ jobs:
       - name: Log into GCP Docker Registry
         uses: actions-hub/gcloud@master
         env:
-          GCLOUD_AUTH: ${{ secrets.GCLOUD_AUTH }}
+          APPLICATION_CREDENTIALS: ${{ secrets.GCLOUD_AUTH }}
 
       - name: Configure Docker to use GCP
         uses: actions-hub/gcloud@master
