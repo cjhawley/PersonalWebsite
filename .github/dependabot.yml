@@ -5,8 +5,8 @@
 
 version: 2
 updates:
-  - package-ecosystem: "maven" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "maven"
+    directory: "/"
     schedule:
       interval: "daily"
   - package-ecosystem: "github-actions"
@@ -16,8 +16,6 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "docker"
-    # Workflow files stored in the
-    # default location of `.github/workflows`
     directory: "/"
     schedule:
       interval: "weekly"
