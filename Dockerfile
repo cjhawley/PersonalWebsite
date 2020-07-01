@@ -11,7 +11,7 @@ COPY src ./src
 RUN mvn package -DskipTests
 
 
-FROM openjdk:11-slim
+FROM openjdk:14-slim
 MAINTAINER Chris Hawley <chris@chrishawley.io>
 
 COPY --from=builder /app/target/lib                                  /usr/share/personalwebsite/lib
