@@ -12,7 +12,7 @@
 
       <link rel="stylesheet" href="/css/normalize.css">
       <link rel="stylesheet" href="/css/main.css">
-      <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.css">
+      <link rel="stylesheet" href="/css/font-awesome/all.min.css">
 
       <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
 
@@ -26,23 +26,16 @@
         <div style="margin-bottom:20px; width: 100%; position: absolute;">
           <div style="float:left;">
             <h1 style="display: inline; margin-right: 10px; margin-top: 5px;">Chris Hawley</h1>
-            <span class="icon-stack">
-              <i class="icon-check-empty icon-stack-base"></i>
-              <a class="btn btn-small" href="mailto:cjhawley001@gmail.com" style="text-decoration:none; color:black;">
-                <i class="icon-envelope-alt icon-black"></i></a>
-            </span>
-            <span class="icon-stack">
-              <i class="icon-check-empty icon-stack-base"></i>
-              <a class="btn btn-small" href="https://www.linkedin.com/pub/christopher-hawley/6b/23a/2/en" target="_blank" style="text-decoration:none; color:black;"><i class="icon-linkedin"></i></a>
-            </span>
-            <span class="icon-stack">
-              <i class="icon-check-empty icon-stack-base"></i>
-              <a class="btn btn-small" href="https://github.com/cjhawley" target="_blank" style="text-decoration:none; color:black;"><i class="icon-github"></i></a>
-            </span>
-            <span class="icon-stack">
-              <i class="icon-check-empty icon-stack-base"></i>
-              <a class="btn btn-small" href="https://www.facebook.com/chris.hawley.33" target="_blank" style="text-decoration:none; color:black;"><i class="icon-facebook"></i></a>
-            </span>
+
+            <a class="btn btn-small" href="mailto:chris@chrishawley.io" style="text-decoration:none; color:black;">
+            <i style="margin-left: 5px" class="fas fa-envelope"></i></a>
+
+            <a class="btn btn-small" href="https://www.linkedin.com/pub/christopher-hawley/6b/23a/2/en" target="_blank" style="text-decoration:none; color:black;">
+            <i style="margin-left: 5px" class="fab fa-linkedin-in"></i></a>
+
+            <a class="btn btn-small" href="https://github.com/cjhawley" target="_blank" style="text-decoration:none; color:black;">
+            <i style="margin-left: 5px" class="fab fa-github"></i></a>
+
           </div>
         </div>
   
