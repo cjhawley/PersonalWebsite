@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.cjhawley</groupId>
     <artifactId>personalwebsite</artifactId>
-    <version>0.1.1-SNAPSHOT</version>
+    <version>0.1.2</version>
 
     <scm>
         <developerConnection>scm:git:https://github.com/cjhawley/PersonalWebsite</developerConnection>
