@@ -55,11 +55,11 @@
           <div style="margin-right:5%; width: 40%; float:left;">
             <p><h3>Recent News</h3></p>
             <div style="background-color:white; margin-bottom:5px; border-radius:2px;">
-                #foreach($personal_event in $personal_events)
+                <#list personal_events as personal_event>
                 <hr>
-                <p class="news-header">$date.format("yyyy.MM.dd", $personal_event.date()) - ${personal_event.title()}</p>
-                <p class="news">${personal_event.description()}</p>
-                #end
+                <p class="news-header">${personal_event.date?string["yyyy.MM.dd"]} - ${personal_event.title}</p>
+                <p class="news">${personal_event.description}</p>
+                </#list>
             </div>
           </div>
           <div style="width: 50%; float:right;">

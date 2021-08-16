@@ -9,9 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-import org.apache.velocity.tools.generic.DateTool;
 import spark.ModelAndView;
-import spark.template.velocity.VelocityTemplateEngine;
+import spark.template.freemarker.FreeMarkerEngine;
 
 import com.google.gson.Gson;
 
@@ -48,11 +47,9 @@ public class PersonalWebsiteService {
 		get("/", (request, response) -> {
 			Map<String, Object> model = new HashMap<>();
 			model.put(PERSONAL_EVENTS, personalEvents.getPersonalEvents());
-			model.put("date", new DateTool());
-
 			// The wm files are located under the resources directory
-			return new ModelAndView(model, "/web/jsp/index.vm");
-		}, new VelocityTemplateEngine());
+			return new ModelAndView(model, "/web/jsp/index.ftl");
+		}, new FreeMarkerEngine());
 
 		final Gson gson = new Gson();
 		get("/personalevents", (request, response) -> {
