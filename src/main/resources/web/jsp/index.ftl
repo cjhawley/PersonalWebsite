@@ -57,8 +57,8 @@
             <div style="background-color:white; margin-bottom:5px; border-radius:2px;">
                 <#list personal_events as personal_event>
                 <hr>
-                <p class="news-header">${personal_event.date?string["yyyy.MM.dd"]} - ${personal_event.title}</p>
-                <p class="news">${personal_event.description}</p>
+                <p class="news-header">${personal_event.date()?string["yyyy.MM.dd"]} - ${personal_event.title()}</p>
+                <p class="news">${personal_event.description()}</p>
                 </#list>
             </div>
           </div>
