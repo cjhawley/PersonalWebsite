@@ -1,4 +1,10 @@
-[{
+[
+  {
+    "title": "Promotion!",
+    "date": "2022-07-15",
+    "description": "Promoted to Staff Software Engineer at Meta"
+  },
+  {
     "title": "New job!",
     "date": "2020-08-17",
     "description": "Joined Facebook as a Software Engineer"
