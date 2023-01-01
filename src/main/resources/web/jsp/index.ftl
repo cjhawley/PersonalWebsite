@@ -48,7 +48,7 @@
   
         <div style="float:left; margin-top: 40px; width:75%">
           <p>Hi, I'm Chris. (<a href="/resume/resume.html" style="text-decoration: underline; color: black;">View my resume</a>)</p>
-          <p>I'm a software engineer at <a href="https://facebook.com" style="text-decoration: underline; color: black;">Facebook</a>. I'm primarily interested in topics related to distributed systems and infrastructure.</p>
+          <p>I'm a software engineer at <a href="https://meta.com" style="text-decoration: underline; color: black;">Meta</a>. I'm primarily interested in topics related to distributed systems, infrastructure, and ads.</p>
         </div>
 
         <div style="width:75%;">
