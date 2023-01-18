@@ -69,7 +69,7 @@
         <dependency>
             <groupId>io.norberg</groupId>
             <artifactId>auto-matter</artifactId>
-            <version>0.26.0</version>
+            <version>0.26.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
