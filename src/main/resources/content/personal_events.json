@@ -23,20 +23,5 @@
     "title":"New job!",
     "date": "2015-05-11",
     "description": "Joined Spotify as a Software Engineer"
-  },
-  {
-    "title": "Promotion!",
-    "date": "2015-01-06",
-    "description": "Promoted to Software Development Engineer II at A9.com (an Amazon Company)"
-  },
-  {
-    "title": "Started work!",
-    "date": "2014-01-06",
-    "description": "Joined A9.com (an Amazon Company) as a Software Development Engineer"
-  },
-  {
-    "title": "Graduated",
-    "date": "2013-12-18",
-    "description": "Graduated from Washington University in St. Louis, with a major in Computer Science and Applied Mathematics"
   }
 ]
