@@ -3,7 +3,7 @@ name: Deploy the application to Google Cloud Run
 on: 
   push:
     branches:
-      - ${{ github.event.repository.default_branch }}
+      - "master"
 
 jobs:
   deploy:
