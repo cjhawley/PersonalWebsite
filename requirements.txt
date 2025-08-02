@@ -51,7 +51,7 @@ typing_extensions==4.13.2
 urllib3==2.2.3
 uvicorn==0.33.0
 uvloop==0.21.0
-virtualenv==20.0.31
+virtualenv==20.26.6
 virtualenv-clone==0.5.4
 watchfiles==0.24.0
 wcwidth==0.2.5
