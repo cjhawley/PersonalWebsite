@@ -3,37 +3,28 @@ My personal website.
 
 ## Deploy
 
-Deploy using Github Actions and Google Cloud Run.
+Deploy on commit using Github Actions and Google Cloud Run.
 
-In order to deploy, a tag must be created and pushed:
-
-```bash
-$ git tag -a "..." -m "..."
-$ git push origin "..."
-```
 
 ## Required Software (for development)
 
-1. Docker 
-2. Java
-3. Maven
+1. Python 
 
-## Testing
+## Installation & Setup
 
 ```bash
-$ mvn clean test
+$ source .venv/bin/activate
+$ pip install -r requirements.txt
 ```
 
 ## Running
-
-### Build
-
+### Development 
 ```bash
-$ mvn clean package
+$ fastapi dev main.py
 ```
 
-### Run
-
+### Production
 ```bash
-java -jar target/personalwebsite.jar
+uvicorn main:app --host 0.0.0.0 --port 80
 ```
+
