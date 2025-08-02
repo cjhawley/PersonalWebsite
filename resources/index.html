@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+
+    <title>Chris Hawley</title>
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+    <link href='https://cdn.boxicons.com/fonts/transformations.min.css' rel='stylesheet'>
+
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js" integrity="sha384-Akqfrbj/HpNVo8k11SXBb6TlBWmXXlYQrCSqEWmyKJe+hDm3Z/B2WVG4smwBkRVm" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx-ext-client-side-templates@2.0.0/client-side-templates.js"></script>
+    <script src="https://unpkg.com/mustache@latest"></script>
+  </head>
+  <body>
+    <div style="margin-left:12%; margin-top:10%">
+      <div style="margin-bottom:20px; width: 100%; position: absolute;">
+        <div style="float:left;">
+          <h1 style="display: inline; margin-right: 10px; margin-top: 1px;">Chris Hawley</h1>
+            <a href="mailto:chris@chrishawley.io" style="text-decoration:none; color:black;">
+              <i class="bx-fw bxr bx-envelope-alt bx-sm"></i>
+            </a>
+            <a href="https://www.linkedin.com/pub/christopher-hawley/6b/23a/2/en" target="_blank" style="text-decoration:none; color:black;">
+              <i class="bx-fw bxl bx-linkedin bx-sm"></i>
+            </a>
+            <a href="https://github.com/cjhawley" target="_blank" style="text-decoration:none; color:black;">
+              <i class="bx-fw bxl bx-github bx-sm"></i>
+            </a>
+        </div>
+      </div>
+      <div style="float:left; margin-top: 40px; width:75%">
+        <p>Hi, I'm Chris, a software engineer at <a href="https://meta.com" style="text-decoration: underline; color: black;">Meta</a>. (<a href="/resume/resume.html" style="text-decoration: underline; color: black;">View my resume</a>)</p>
+        <p>I'm primarily interested in topics related to distributed systems, infrastructure, and ads. At Meta, I work in Ads Infrastructure on efficiency and reliability problems.</p>
+      </div>
+      <div style="width:75%">
+        <div style="margin-right:5%; width:40%; float:left;">
+          <p><h3>Recent News</h3></p>
+          <p id="recent_news"></p>
+          <div hx-ext="client-side-templates" style="background-color:white; margin-bottom:5px; border-radius:2px;">
+            <div hx-get="/personal_events.json" hx-swap="innerHTML" hx-trigger="load" hx-target="#recent_news" mustache-array-template="personal_events"/>
+            <template id="personal_events">
+              {{#data.events}}
+                <hr/>
+                <p class="news-header"> {{date}} - {{title}}</p>
+                <p class="news"> {{description}}</p>
+              {{/data.events}}
+            </template>
+          </div>
+        </div>
+      </div>
+      <div style="width: 50%; float:right;">
+        <p><h3>Publications</h3></p>
+        <p id="publications_tag"></p>
+        <div hx-ext="client-side-templates" style="background-color:white; margin-bottom:5px; border-radius:2px;">
+          <div hx-get="/publications.json" hx-swap="innerHTML" hx-trigger="load" hx-target="#publications_tag" mustache-array-template="publications"/>
+          <template id="publications">
+            {{#data.publications}}
+              <hr/>
+              <p class="news">{{title}} <a href={{url}}><i class="bx bx-file"></i> </a></p>
+              <p class="news-header">{{authors}}</p>
+            {{/data.publications}}
+          </template>
+        </div>
+      </div>
+
+  </body>
+</html>

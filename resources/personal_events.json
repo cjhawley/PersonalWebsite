@@ -1,0 +1,25 @@
+{
+  "events" : [
+    {
+      "title": "Promotion!",
+      "date": "2025-07-01",
+      "description": "Promoted to Sr. Staff Software Engineer at Meta"
+    }, {
+      "title": "Promotion!",
+      "date": "2022-07-15",
+      "description": "Promoted to Staff Software Engineer at Meta"
+    }, {
+      "title": "New job!",
+      "date": "2020-08-17",
+      "description": "Joined Facebook as a Software Engineer"
+    }, {
+      "title":"New job!",
+      "date": "2017-03-17",
+      "description": "Joined RADAR as a Software Engineer"
+    }, {
+      "title":"New job!",
+      "date": "2015-05-11",
+      "description": "Joined Spotify as a Software Engineer"
+    }
+  ]
+}
