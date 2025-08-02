@@ -2,8 +2,8 @@ name: Deploy the application to Google Cloud Run
 
 on: 
   push:
-    tags: 
-      - '*'
+    branches:
+      - ${{ github.event.repository.default_branch }}
 
 jobs:
   deploy:
@@ -12,29 +12,16 @@ jobs:
     
     steps:
       - uses: actions/checkout@v4
-        
-      - name: Checkout the repository
-        run: docker build . --file Dockerfile --tag "gcr.io/${{ secrets.GCLOUD_PROJECT_ID }}/${{ secrets.GCLOUD_APP_NAME }}:latest"
+      
+      - uses: google-github-actions/auth@v2
+        with:
+          project_id: ${{ secrets.GCLOUD_PROJECT_ID }}
+          credentials_json: ${{ secrets.GCLOUD_AUTH }}
+
+      - name: Deploy to Cloud Run
+        id: deploy
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: ${{ secrets.GCLOUD_APP_NAME }}
+          source: './'   
   
-      - name: Log into GCP Docker Registry
-        uses: actions-hub/gcloud@master
-        env:
-          APPLICATION_CREDENTIALS: ${{ secrets.GCLOUD_AUTH }}
-          PROJECT_ID: ${{ secrets.GCLOUD_PROJECT_ID }}
-
-      - name: Configure Docker to use GCP
-        uses: actions-hub/gcloud@master
-        with:
-          args: "auth configure-docker --quiet"
-        
-      - name: Push image to GCP CR
-        uses: actions-hub/gcloud@master
-        with:
-          entrypoint: sh
-          args: -c "docker push gcr.io/${{ secrets.GCLOUD_PROJECT_ID }}/${{ secrets.GCLOUD_APP_NAME }}"
-
-      - name: Install beta commands and deploy on cloud run
-        uses: actions-hub/gcloud@master
-        with:
-          args: "components install beta --quiet && gcloud beta run deploy ${{ secrets.GCLOUD_APP_NAME }} --quiet --image gcr.io/${{ secrets.GCLOUD_PROJECT_ID }}/${{ secrets.GCLOUD_APP_NAME }} --project ${{ secrets.GCLOUD_PROJECT_ID }} --region us-central1 --platform managed"
-                    

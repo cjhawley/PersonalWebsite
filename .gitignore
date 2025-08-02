@@ -1,10 +1,2 @@
-release.properties
-pom.xml.releaseBackup
-.idea/
-*.iml
-target/
-build/
-.classpath
-.settings
-.project
+__pycache__/
 .DS_Store
