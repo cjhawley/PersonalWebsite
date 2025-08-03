@@ -2,12 +2,12 @@
   "publications": [
 	  {
 		  "title": "Code Improvement Practices at Meta",
-		  "authors": "Audris Mockus, Peter C Rigby, Rui Abreu, Anatoly Akkerman, Yogesh Bhootada, Payal Bhuptani, Gurnit Ghardhora, Lan Hoang Dao, Chris Hawley, Renzhi He, Sagar Krishnamoorthy, Sergei Krauze, Jianmin Li, Anton Lunov, Dragos Martac, Francois Morin, Neil Mitchell, Venus Montes, Maher Saba, Matt Steiner, Andrea Valori, Shanchao Wang, Nachiappan Nagappan",
+		  "authors": "A. Mockus, P. Rigby, R. Abreu, A. Akkerman, Y. Bhootada, P. Bhuptani, G. Ghardhora, L. Dao, C. Hawley, R. He, S. Krishnamoorthy, S. Krauze, J. Li, A. Lunov, D. Martac, F. Morin, N. Mitchell, V. Montes, M. Saba, M. Steiner, A. Valori, S. Wang, N. Nagappan",
 		  "url" : "https://arxiv.org/pdf/2504.12517"
 	  },
 	  {
 		  "title": "Shadow Estimation Method for \"The Episolar Constraint: Monocular Shape from Shadow Correspondence\"",
-		  "authors": "Austin Abrams, Chris Hawley, Kylia Miskell, Adina Stoica, Nathan Jacobs, Robert Pless",
+		  "authors": "A. Abrams, C. Hawley, K. Miskell, A. Stoica, N. Jacobs, R. Pless",
 		  "url": "https://arxiv.org/pdf/1304.4112"
 	  },
 	  {
