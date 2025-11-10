@@ -47,6 +47,6 @@ ujson==5.10.0
 urllib3==2.5.0
 uvicorn==0.38.0
 uvloop==0.21.0
-watchfiles==0.24.0
+watchfiles==1.1.1
 wcwidth==0.2.13
 websockets==15.0.1
