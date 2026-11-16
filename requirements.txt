@@ -30,7 +30,7 @@ packaging==26.3
 pluggy==1.7.0
 pydantic==2.14.3
 pydantic-extra-types==2.11.1
-pydantic-settings==2.16.2
+pydantic-settings==2.16.3
 pydantic_core==2.50.4
 Pygments==2.21.0
 pytest==9.2.0
